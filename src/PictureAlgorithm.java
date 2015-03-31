@@ -29,15 +29,16 @@ public class PictureAlgorithm {
 					j++;
 				}
 				else {
-					for (int xx = 0; xx < colorandcoords.size(); xx++) {
-						if (colorandcoords.get(xx).getColor() == colors) {
-							colorandcoords.get(xx).add(x, y);
-						}
-					}
+					int k = ST.get(ColorandCoords.convertColor(colors));
+//					for (int xx = 0; xx < colorandcoords.size(); xx++) {
+//						if (colorandcoords.get(xx).getColor() == colors) {
+							colorandcoords.get(k).add(x, y);
+							
+						
+					
 				}
-//				
 			}
-			j++;
+//			j++;
 		}
 		Collections.sort(colorandcoords);
 		
@@ -57,24 +58,26 @@ public class PictureAlgorithm {
 		
 		
 		
-//		for ()
 		
 		
 //		int k = 0;
-//		StdDraw.clear();
-//		StdDraw.setXscale(0, width);
-//		StdDraw.setYscale(0, height);
-//		
-//
-////		for (int i = 0; i < uniqueColors.size(); i++) {
-//			for (int i = 0; i < colorandcoords.get(i).getFrequency(); i++) {
-//				
-//				StdDraw.setPenColor(colorandcoords.get(k).getColor());
-//				StdDraw.point(colorandcoords.get(i).getX(i), colorandcoords.get(i).getY(i)/2);
-//				k++;
-//				
-//			}
+		StdDraw.clear();
+		StdDraw.setXscale(0, width);
+		StdDraw.setYscale(0, height);
 
+
+		for (int z = 0; z < uniqueColors.size(); z++) {
+			for (int i = 0; i < colorandcoords.get(z).getFrequency(); i++) {
+
+				StdDraw.setPenColor(colorandcoords.get(z).getColor());
+//				System.out.println(i);
+				StdDraw.point(colorandcoords.get(z).getX(i), colorandcoords.get(z).getY(i/2));
+				//				k++;
+				//				
+				//			}
+
+			}
 		}
-	}
 
+	}
+}
