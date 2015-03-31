@@ -41,7 +41,10 @@ public class PictureAlgorithm {
 //			j++;
 		}
 		Collections.sort(colorandcoords);
-		
+//		System.out.println("The first color has this many colors: " + colorandcoords.get(0).getFrequency());
+//		System.out.println("The second color has this many colors: " + colorandcoords.get(1).getFrequency());
+//		System.out.println("The first color has this many colors: " + colorandcoords.get(colorandcoords.size()-1).getFrequency());
+//		System.out.println("The first color has this many colors: " + colorandcoords.get(colorandcoords.size()-2).getFrequency());
 		System.out.println("There are " + uniqueColors.size() + " unique colors in the picture.");
 		
 		
@@ -66,12 +69,12 @@ public class PictureAlgorithm {
 		StdDraw.setYscale(0, height);
 
 
-		for (int z = 0; z < uniqueColors.size(); z++) {
+		for (int z = colorandcoords.size()-1; z >= 0; z--) {
 			for (int i = 0; i < colorandcoords.get(z).getFrequency(); i++) {
 
 				StdDraw.setPenColor(colorandcoords.get(z).getColor());
 //				System.out.println(i);
-				StdDraw.point(colorandcoords.get(z).getX(i), colorandcoords.get(z).getY(i/2));
+				StdDraw.point(colorandcoords.get(z).getX(i), height - (colorandcoords.get(z).getY(i)));
 				//				k++;
 				//				
 				//			}
